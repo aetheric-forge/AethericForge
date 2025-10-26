@@ -7,21 +7,16 @@ import pulumi_digitalocean as do
 from typing import Any, Dict, List, Optional
 
 from util.naming import with_suffix
+from util.config import require
 
 # ---- Config helpers ---------------------------------------------------------
 
 AETHERIC = pulumi.Config("aetheric")
 
-def _require(cfg: pulumi.Config, key: str) -> str:
-    v = cfg.get(key)
-    if v is None:
-        raise RuntimeError(f"Missing required config: {cfg.name}:{key}")
-    return v
-
 def load_base_config() -> Dict[str, Any]:
     return {
-        "name": _require(AETHERIC, "clusterName"),
-        "region": _require(AETHERIC, "clusterRegion"),
+        "name": require(AETHERIC, "clusterName"),
+        "region": require(AETHERIC, "clusterRegion"),
         "nodePools": AETHERIC.get_object("nodePools") or [],
     }
 
