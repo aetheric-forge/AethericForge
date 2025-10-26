@@ -1,0 +1,8 @@
+name: aetheric-forge
+runtime:
+  name: python
+  options:
+    virtualenv: ~/.venvs/valkyr
+description: Base Aetheric Forge infrastructure on DigitalOcean DOKS + core workloads
+config:
+    region: tor1

@@ -1,0 +1,22 @@
+# Python cruft
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venvs/
+
+# Pulumi local state
+*.lock.json
+Pulumi.*.yaml
+# (keep secrets.yaml out of version control if you’re not using KMS)
+
+# OS detritus
+.DS_Store
+Thumbs.db
+
+# Worktree build/test
+/tests/__pycache__/
+/*.log
+*.code-workspace
+kubeconfig*
+
